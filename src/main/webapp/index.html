@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SharePoint Integration Test</title>
+<script type="text/javascript">
+
+function myFunction() {
+	
+	  var x = document.getElementById("mySelect").value;
+	  
+	  document.getElementById("hidOption").value =x;
+	 
+	  
+	  
+	  try{
+	  if(x=="upload"){
+		  document.getElementById("uploadfileDiv").style.display="block";
+		  document.getElementById("SearchfileDiv").style.display="none";
+	  }
+	  if(x=="search"){
+		  document.getElementById("SearchfileDiv").style.display="block";
+		  document.getElementById("uploadfileDiv").style.display="none";
+	  }
+	  }catch(e){
+		  alert(e);
+	  }
+	}
+</script>
+</head>
+ <body>
+  
+ <form action="UploadFile" method="post" enctype="multipart/form-data">
+ <input type="hidden" id="hidOption" name="hidOption" size="30" />
+ <div align="center">
+  <select id="mySelect" name="mySelect" onchange="myFunction();">
+    <option >Select</option>
+    <option value="upload">Upload File</option>
+    <option value="search" >Search for file</option>   
+  </select>
+  </div>
+       <div id="uploadfileDiv" style="display:none;">
+        <div align="center"><h1>File Upload</h1></div>
+        
+        <div align="center">
+            
+                
+                <p>
+                    Select File to Upload:<input type="file" name="file">  <input type="submit" value="Upload">
+                </p>
+
+            
+        </div>
+       </div>
+        <div id="SearchfileDiv" style="display:none;">
+          <div align="center"><h1>Search File</h1></div>
+            <div align="center">
+            
+                <p> File ID: <input type="text" name="fileIDTxt" size="30" /></p>
+                <p>
+                    <input type="submit" value="Search">
+                </p>
+               
+
+            
+        </div>
+        </div>
+       
+        </form>
+    </body>
+</html>
